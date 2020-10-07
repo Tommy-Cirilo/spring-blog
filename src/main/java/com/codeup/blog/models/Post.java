@@ -1,6 +1,6 @@
 package com.codeup.blog.models;
 
-public class post {
+public class Post {
     private long id;
     private String title;
     private String body;
