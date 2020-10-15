@@ -1,24 +1,23 @@
 package com.codeup.blog.controllers;
 
-import com.codeup.blog.models.Ad;
-import com.codeup.blog.models.AdCategory;
 import com.codeup.blog.models.Post;
 import com.codeup.blog.repository.PostRepository;
 import com.codeup.blog.repository.UserRepository;
+import com.codeup.blog.services.EmailService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 
 @Controller
 public class PostController {
     private final PostRepository postRepo;
     private final UserRepository userRepo;
+    private final EmailService emailService;
 
-    public PostController(PostRepository postRepo, UserRepository userRepo) {
+    public PostController(PostRepository postRepo, UserRepository userRepo, EmailService emailService) {
         this.postRepo = postRepo;
         this.userRepo = userRepo;
+        this.emailService = emailService;
     }
 
     @RequestMapping(path = "/posts", method = RequestMethod.GET)
